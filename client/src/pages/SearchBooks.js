@@ -44,12 +44,16 @@ const SearchBooks = () => {
         bookId: book.id,
         authors: book.volumeInfo.authors || ['No author to display'],
         title: book.volumeInfo.title,
+        link: book.volumeInfo.infoLink,
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks?.thumbnail || '',
       }));
 
+
+
       setSearchedBooks(bookData);
       setSearchInput('');
+      console.log(bookData);
     } catch (err) {
       console.error(err);
     }
@@ -74,8 +78,8 @@ const SearchBooks = () => {
      // if book successfully saves to user's account, save book id to state
      setSavedBookIds([...savedBookIds, bookToSave.bookId]);
    } catch (err) {
-     console.log("hhhhhhhhhhhhhhhhhhhhh")
-    //  console.error(err);
+    //  console.log("hhhhhhhhhhhhhhhhhhhhh")
+     console.error(err);
    }
  };
 
